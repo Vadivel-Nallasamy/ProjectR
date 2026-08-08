@@ -13,6 +13,6 @@ mongoose.connect(db).then((con) => {
 });
 
 app.listen(7000, () => {
-  console.log('Listening');
+  console.log('Listenin');
 });
 //
