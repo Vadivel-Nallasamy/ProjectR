@@ -1,16 +1,77 @@
 {
-  "dependencies": {
-    "dotenv": "^17.4.2",
-    "express": "^5.2.1",
-    "express-mongo-sanitize": "^2.2.0",
-    "express-rate-limit": "^8.6.2",
-    "helmet": "^8.3.0",
-    "hpp": "^0.2.3",
-    "mongoose": "^9.9.1",
-    "xss-clean": "^0.1.4"
+  
+  "scripts": {
+  
+    
+  "dev": "nodemon --exec tsx src/server.ts",
+  
+    
+  "build": "tsc",
+  
+    
+  "start": "node dist/server.js"
+  
   },
+  
+  "dependencies": {
+  
+    
+  "dotenv": "^17.4.2",
+  
+    
+  "express": "^5.2.1",
+  
+    
+  "express-rate-limit": "^8.6.2",
+  
+    
+  "helmet": "^8.3.0",
+  
+    
+  "hpp": "^0.2.3",
+  
+    
+  "jsonwebtoken": "^9.0.3",
+  
+    
+  "mongoose": "^9.9.1",
+  
+    
+  "passport": "^0.7.0",
+  
+    
+  "passport-google-oauth20": "^2.0.0"
+  
+  },
+  
   "devDependencies": {
-    "morgan": "^1.11.0",
-    "nodemon": "^3.1.14"
+  
+    
+  "@types/express": "^5.0.6",
+  
+    
+  "@types/jsonwebtoken": "^9.0.10",
+  
+    
+  "@types/node": "^26.2.0",
+  
+    
+  "@types/passport": "^1.0.17",
+  
+    
+  "@types/passport-google-oauth20": "^2.0.17",
+  
+    
+  "morgan": "^1.11.0",
+  
+    
+  "nodemon": "^3.1.14",
+  
+    
+  "tsx": "^4.23.11",
+  
+    
+  "typescript": "^7.0.2"
+  
   }
 }

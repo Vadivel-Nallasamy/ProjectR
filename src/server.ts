@@ -1,12 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 
 dotenv.config({ path: './config.env' });
 
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const app = require('./app');
 
-const db = process.env.MONGODB_URI
+const db: any = process.env.MONGODB_URI
 mongoose.connect(db).then((con) => {
   //console.log(con.connections);
   console.log('DataBase has awaken');

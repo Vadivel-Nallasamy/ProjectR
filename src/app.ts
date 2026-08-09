@@ -1,11 +1,12 @@
 // ////----CORE MODULES------/////
 
-const express = require('express'); //Require express
-const rateLimit = require('express-rate-limit');
-const helmet = require('helmet');
-const mongoSanitize = require('express-mongo-sanitize');
-const xss = require('xss-clean');
-const hpp = require('hpp');
+
+import express from 'express'
+import rateLimit from 'express-rate-limit';
+import helmet from 'helmet';
+import hpp from 'hpp';
+import researchRouter from './Routes/researchRoutes';
+import userRouter from './Routes/userRoutes';
 
 
 
@@ -29,10 +30,10 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json({ limit: '10kb' })); /////BODY PARSER to read body into req.body
 
 //Middleware to block malicious query injection
-app.use(mongoSanitize());
+// app.use(mongoSanitize());
 
 //Middeware to block cross site scripting(xss) attacks
-app.use(xss());
+// app.use(xss());
 
 //Prevent Parameter Pollution
 // app.use(
@@ -48,22 +49,21 @@ app.use(xss());
 //   })
 // );
 
-app.use((req, res, next) => {
+app.use((req: any, res, next) => {
   req.requestTime = new Date().toISOString();
   next();
 });
 
 // ///////ROUTES////////////////
+app.use('/api/v1/research', researchRouter);
+app.use('/api/v1/auth', userRouter)
 
-
-// app.all('*', (req, res, next) => {
-//   // const err = new Error(`Can't find ${req.originalUrl} in this request`);
-
-//   // err.statusCode = 404;
-//   // err.status = 'Error';
-
-// });
-
+app.all("/{*splat}", (req, res, next) => {
+  res.status(404).json({
+    status: "fail",
+    message: `Can't find ${req.originalUrl} on this server!`,
+  });
+});
 
 ////////LISTEN FOR REQUESTS/////////
 module.exports = app;
