@@ -7,6 +7,7 @@ import helmet from 'helmet';
 import hpp from 'hpp';
 import researchRouter from './Routes/researchRoutes';
 import userRouter from './Routes/userRoutes';
+import kiteRoutes from './Routes/kiteRoutes';
 
 
 
@@ -57,7 +58,7 @@ app.use((req: any, res, next) => {
 // ///////ROUTES////////////////
 app.use('/api/v1/research', researchRouter);
 app.use('/api/v1/auth', userRouter)
-
+app.use('/api/v1/kite', kiteRoutes)
 app.all("/{*splat}", (req, res, next) => {
   res.status(404).json({
     status: "fail",
