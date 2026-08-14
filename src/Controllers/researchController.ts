@@ -11,7 +11,11 @@ import ResearchCall from "../Models/researchModel"
 const getCalls = (req: any,res: any,next: any)=> {
 
 }
+
+const searchScrip = (req: any,res: any,next: any)=> {
+
+}
 const researchController = {
-    createCall
+    createCall, searchScrip
 }
 export default researchController
