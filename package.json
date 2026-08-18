@@ -16,6 +16,9 @@
   "dependencies": {
   
     
+  "@elastic/elasticsearch": "^9.5.0",
+  
+    
   "axios": "^1.19.0",
   
     
