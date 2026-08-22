@@ -14,7 +14,12 @@ const generateSession = async(req: any, res: any, next: any)=> {
   accessToken: response.access_token,
 });
     res.status(200).json({
-        status: 'Ok'
+        status: 'Ok',
+        message: 'Success',
+        result: {
+          accessToken: response.access_token
+        }
+
     })
     } catch (err: any){
         console.log(err)
@@ -26,10 +31,18 @@ const generateSession = async(req: any, res: any, next: any)=> {
 }
 const  getProfile = async(req: any, res: any, next: any)=> {
   try {
+    console.log('1')
     const profile = await kiteConnect.getProfile();
+    console.log(profile, 'profile is')
    if(profile ) {
     res.status(200).json({
         result: [profile]
+    })
+   } else {
+    res.status(200).json({
+        result: [],
+        status: 'Not_Ok',
+        message: 'Invalid Session'
     })
    }
   } catch (err) {
